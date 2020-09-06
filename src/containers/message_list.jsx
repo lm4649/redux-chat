@@ -9,10 +9,18 @@ class MessageList extends Component {
     this.props.fetchMessages();
   }
 
+  componentDidMount() {
+    this.refresh = setInterval(this.props.fetchMessages, 5000);
+  }
+
+  componenWillUnmount() {
+    clearInterval(this.refresh);
+  }
+
   render() {
     return (
       <div className="messages">
-        <div className="list-header">Channel#general</div>
+        <div className="list-header">Channel#{this.props.channel}</div>
         { this.props.messages.map(message => <Message message={message} />)}
       </div>
     );
@@ -27,6 +35,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return { messages: state.messages };
+  return { messages: state.messages, channel: state.selectedChannel };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
