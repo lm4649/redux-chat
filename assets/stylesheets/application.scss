@@ -1,7 +1,33 @@
 body {
-  font-family: Helvetica;
+  color: black;
+  background-color: white;
+  font-family: Arial, sans-serif;
 }
+
 .app {
   margin-top: 20px;
   margin-bottom: 20px;
+  display: flex;
+  .messages {
+    width: 30%;
+    .list-header {
+      text-align: center;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+      border-bottom: solid 1px gray;
+    }
+    .message {
+      padding: 4px 4px;
+      margin: 2px 2px;
+      border: solid 1px black;
+    }
+  }
+}
+
+$randomR: random(255);
+$randomG: random(255);
+$randomB: random(255);
+
+.colored-name {
+  color: rgb($randomR,$randomG,$randomB);
 }

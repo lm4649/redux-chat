@@ -6,7 +6,8 @@ class MessageList extends Component {
   render() {
     return (
       <div className="messages">
-        { this.props.messages.map(message => <Message message={message} />)};
+        <div className="list-header">Channel#general</div>
+        { this.props.messages.map(message => <Message message={message} />)}
       </div>
     );
   }
