@@ -7,7 +7,11 @@ import { createMessage } from '../actions';
 class MessageForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: ''};
+    this.state = { value: '' };
+  }
+
+  componentDidMount() {
+    this.MessageBox.focus();
   }
 
   handleChange = (event) => {
@@ -23,7 +27,7 @@ class MessageForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="message-form">
-        <input type="text" className="form-control" value={this.state.value} onChange={this.handleChange} />
+        <input type="text" ref={(input) => { this.MessageBox = input; }} className="form-control" value={this.state.value} onChange={this.handleChange} />
         <div className="input-group-append">
           <button type="submit" className="btn btn-warning" value="Submit">Send</button>
         </div>
