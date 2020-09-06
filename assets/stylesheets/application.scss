@@ -9,7 +9,7 @@ body {
   margin-bottom: 20px;
   display: flex;
   .messages {
-    width: 30%;
+    width: 100%;
     .list-header {
       text-align: center;
       padding-bottom: 8px;
@@ -30,4 +30,13 @@ $randomB: random(255);
 
 .colored-name {
   color: rgb($randomR,$randomG,$randomB);
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  .message-form {
+    display: flex;
+    margin: 16px 0 16px 4px;
+  }
 }
