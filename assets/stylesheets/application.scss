@@ -7,6 +7,7 @@ body {
 .app {
   margin: 20px 20px 20px 0;
   display: flex;
+  height: 100vh;
 
   .vert-navbar{
     width: 10%;
@@ -25,7 +26,7 @@ body {
   }
 
   .channels {
-    width: 25%;
+    width: 15%;
     background-color: #F4F4F4;
     .channel {
       padding-left: 24px;
