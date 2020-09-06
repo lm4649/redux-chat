@@ -5,21 +5,63 @@ body {
 }
 
 .app {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 20px 20px 0;
   display: flex;
+
+  .vert-navbar{
+    width: 10%;
+    background-color: #DADADA;
+    .icon-red {
+      color:white;
+      background-color: red;
+      width: 40px;
+      height: 40px;
+      border-radius:100%;
+      padding: 3px 12px;
+      margin: 16px auto;
+      text-shadow: -1px 0 0 black;
+      font-size: 24px;
+    }
+  }
+
+  .channels {
+    width: 25%;
+    background-color: #F4F4F4;
+    .channel {
+      padding-left: 24px;
+      margin: 8px auto;
+      opacity: 0.8;
+      font-weight: 400;
+      transition: 0.5s ease;
+      &:hover{
+        cursor: pointer;
+        opacity: 1;
+        font-weight: 900;
+      }
+    }
+  }
+
+  .active {
+    opacity: 1 !important;
+    font-weight: 900 !important;
+    color: purple;
+  }
+
+  .messages-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   .messages {
     width: 100%;
-    .list-header {
-      text-align: center;
-      padding-bottom: 8px;
-      margin-bottom: 8px;
-      border-bottom: solid 1px gray;
-    }
     .message {
       padding: 4px 4px;
       margin: 2px 2px;
       border: solid 1px black;
+      }
+    }
+  .message-form {
+    display: flex;
+    margin: 16px 0 16px 4px;
     }
   }
 }
@@ -32,11 +74,10 @@ $randomB: random(255);
   color: rgb($randomR,$randomG,$randomB);
 }
 
-.messages-container {
-  display: flex;
-  flex-direction: column;
-  .message-form {
-    display: flex;
-    margin: 16px 0 16px 4px;
-  }
-}
+.list-header {
+      text-align: center;
+      padding: 4px 0;
+      margin-bottom: 8px;
+      border-bottom: solid 1px gray;
+    }
+

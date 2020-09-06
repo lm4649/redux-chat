@@ -1,8 +1,9 @@
 export const SET_MESSAGES = 'SET_MESSAGES';
 export const POST_MESSAGE = 'POST_MESSAGE';
+export const SELECT_CHANNEL = 'SELECT_CHANNEL';
 
-export function fetchMessages () {
-  const promise = fetch('https://wagon-chat.herokuapp.com/general/messages').then(response => response.json());
+export function fetchMessages (channel) {
+  const promise = fetch(`https://wagon-chat.herokuapp.com/${channel}/messages`).then(response => response.json());
 
   return {
     type: SET_MESSAGES,
@@ -25,5 +26,12 @@ export function createMessage (channel, author, content) {
   return {
     type: POST_MESSAGE,
     payload: promise
+  };
+}
+
+export function selectChannel(channel) {
+  return {
+    type: SELECT_CHANNEL,
+    payload: channel
   };
 }
