@@ -13,13 +13,18 @@ class MessageList extends Component {
     this.refresh = setInterval(this.props.fetchMessages, 5000);
   }
 
+
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
+  }
+
   componenWillUnmount() {
     clearInterval(this.refresh);
   }
 
   render() {
     return (
-      <div className="messages">
+      <div className="messages" ref={(list) => { this.list = list; }} >
         <div className="list-header">Channel#{this.props.channel}</div>
         { this.props.messages.map(message => <Message message={message} />)}
       </div>
