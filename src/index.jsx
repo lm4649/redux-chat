@@ -43,7 +43,9 @@ const reducers = combineReducers({
 });
 
 // middlewares
-const middlewares = applyMiddleware(reduxPromise, logger);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middlewares = composeEnhancers(applyMiddleware(logger, reduxPromise));
+// const middlewares = applyMiddleware(reduxPromise, logger);
 
 // render an instance of the component in the DOM
 ReactDOM.render(
